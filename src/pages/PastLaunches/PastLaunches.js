@@ -1,8 +1,7 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import Error from './../../components/Error';
 import Loader from './../../components/Loader';
-import lauchesFeed from './../../components/LaunchesFeed';
 import LaunchesFeed from './../../components/LaunchesFeed';
 
 const GET_PAST_LAUNCHES = gql`
@@ -23,8 +22,6 @@ const GET_PAST_LAUNCHES = gql`
 `;
 
 const PastLaunches = () => {
-    const navRef = useRef(null);
-
     const { data, loading, error } = useQuery(GET_PAST_LAUNCHES);
 
     if (loading) return <Loader />;
